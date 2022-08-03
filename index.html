@@ -9,13 +9,18 @@
 <body>
     <div id="app">
         <!-- Esta es la llamada a la variable titulo -->
+
         <h1>{{titulo}}</h1>
-        <input type="text" v-model="nuevaFruta">
         <!--El metodo v-onclick=""" tambien puede escribirse como @click=""-->
-        <button v-on:click="agregarFruta">Agregar</button>
-
-
+        <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+        <button v-on:click="agregarFruta">Agregar Nombre</button> <br>
+        <input type="text" v-model="nuevoNumero" @keyup.enter="agregarNumero">
+        <button v-on:click="agregarNumero">Agregar Cantidad</button>
         
+        
+
+
+
         <ul>
             <!-- Este es un cilo for que imprime todas las frutas de un arreglo -->
             <li v-for="fruta of frutas">{{fruta}}</li>
@@ -31,12 +36,16 @@
         <ul>
             <!-- Este es un cilo for con un ciclo if que imprime todas las frutas de un OBJETO y avisa cuando una fruta no tiene stock -->
             <li v-for="fruta of fruit">
-                {{fruta.cantidad}} - {{fruta.nombre}}
+                <!--Input para cada una de las frutas que se imprimen ene l ciclo for-->
+                <input type="number" v-model.number="fruta.cantidad">
+                {{fruta.nombre}}
+                <!--Boton que suma 1 a la cantidad que esta registrada dentro de la fruta-->
+                <button @click="fruta.cantidad++">+</button>
+                <!--Ciclo if que nos dice si una fruta tiene stock o no-->
                 <span v-if= "fruta.cantidad === 0">- Sin Stock</span>
-             </li>
-            
-
+             </li> 
         </ul>
+        <h4>TOTAL: {{sumarFrutas}} </h4>
         
     </div>
     
