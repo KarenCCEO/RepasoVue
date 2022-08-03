@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Esta es la llamada a la variable titulo -->
+        <h1>{{titulo}}</h1>
+        <ul>
+            <!-- Este es un cilo for que imprime todas las frutas de un arreglo -->
+            <li v-for="fruta of frutas">{{fruta}}</li>
+        </ul>
+        <ul>
+            <!-- Este es un cilo for que imprime todas las frutas de un OBJETO -->
+            <li v-for="fruta of fruit">{{fruta}}</li>
+        </ul>
+        <ul>
+            <!-- Este es un cilo for que imprime todas las frutas de un OBJETO, su cantidad y su nombre por separado  -->
+            <li v-for="fruta of fruit">{{fruta.cantidad}}- {{fruta.nombre}} </li>
+        </ul>
+        <ul>
+            <!-- Este es un cilo for con un ciclo if que imprime todas las frutas de un OBJETO y avisa cuando una fruta no tiene stock -->
+            <li v-for="fruta of fruit">
+                {{fruta.cantidad}} - {{fruta.nombre}}
+                <span v-if= "fruta.cantidad === 0">- Sin Stock</span>
+             </li>
+            
+
+        </ul>
+        
+    </div>
+    
+</body>
+</html>
+
+<!-- Script para trabajar con vue-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<!-- Script que contiene todas las vabriables -->
+<script src="01.js"></script>
