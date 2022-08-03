@@ -10,6 +10,12 @@
     <div id="app">
         <!-- Esta es la llamada a la variable titulo -->
         <h1>{{titulo}}</h1>
+        <input type="text" v-model="nuevaFruta">
+        <!--El metodo v-onclick=""" tambien puede escribirse como @click=""-->
+        <button v-on:click="agregarFruta">Agregar</button>
+
+
+        
         <ul>
             <!-- Este es un cilo for que imprime todas las frutas de un arreglo -->
             <li v-for="fruta of frutas">{{fruta}}</li>

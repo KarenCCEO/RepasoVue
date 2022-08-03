@@ -11,7 +11,20 @@ const app = new Vue({
             {nombre:'Manzana', cantidad: 20},
             {nombre:'Platano', cantidad: 10}
 
-        ]
+        ],
+        nuevaFruta:''
+
+    },
+    //Metodo que guarda la informacion de un input detro de un arreglo
+    methods:{
+        agregarFruta(){
+            this.fruit.push({
+                nombre: this.nuevaFruta, cantidad:0
+
+            })
+            
+
+        }
 
     }
 
