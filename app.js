@@ -1,19 +1,26 @@
 const app= new Vue ({
     el: '#app',
     data:{
-        titulo:'Gym con vue',
-        tareas:[
-            {nombre:'programar'}
+        titulo:'Generador de JOINS',
+        tipo_tabla:"",
+        tablas:[
+            {nombre:'', columnas:[]}
         ],
-        nuevaTarea:''
+        nuevaTabla:"",
+        mensaje_error:''
     },
     methods:{
-        agregarTarea(){
-            this.tareas.push({
-                nombre: this.nuevaTarea,
-                estado:false
-            });
-            this.nuevaTarea="";
+        agregarTabla(){
+            if(this.nuevaTabla===""){
+                this.mensaje_error="!Alto! agrega un nombre por favor :) "
+            }else{
+                this.tablas.push({
+                    nombre: this.nuevaTabla,
+                    columnas:[{nombre:"Columna_default", type:"Numero"}]
+                });
+                this.nuevaTabla="";
+            }
+          
         }
     }
 })
